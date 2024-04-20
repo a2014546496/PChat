@@ -1,0 +1,29 @@
+QWidget#Leftwidget{
+    background-color:#f3f4f7;
+}
+
+QWidget#Rightwidget{
+    background-color:#f3f4f7;
+}
+
+QWidget#Midwidget{
+    background-color:#ffffff;
+}
+
+QToolButton{
+    background-color:#f3f4f7;
+    border:none;
+    border-radius:10px;
+    padding:0px;
+    background:transparent;
+    text-align:center;
+
+}
+
+QToolButton:hover{
+     background-color:#d7d7d8;
+}
+
+QToolButton:checked{
+    background-color:#d7d7d8;
+}

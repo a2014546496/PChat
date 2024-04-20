@@ -1,0 +1,10 @@
+<RCC>
+    <qresource prefix="/qss"/>
+    <qresource prefix="/">
+        <file>Qss/PChatQss.css</file>
+        <file>PNG/UserPicture.jpg</file>
+        <file>PNG/chats.png</file>
+        <file>PNG/friend.png</file>
+        <file>PNG/chat-selected.png</file>
+    </qresource>
+</RCC>
