@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include <QToolButton>
+#include <QListWidget>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -20,6 +21,7 @@ private:
 private slots:
     void updateLeftToolBtnsCheckedButton();
 private:
+    QListWidget *chatsListWidget;
     QList<QToolButton*> m_buttons;
     Ui::MainWindow *ui;
 };

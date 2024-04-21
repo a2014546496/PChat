@@ -2,6 +2,7 @@
 #include "./ui_mainwindow.h"
 #include<QPixmap>
 #include<QPainter>
+#include"custtomlisttitem.h"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent), ui(new Ui::MainWindow)
@@ -10,11 +11,11 @@ MainWindow::MainWindow(QWidget *parent)
     ui->UserPictureToolBtn->setIcon(QIcon(":/PNG/UserPicture.jpg"));
     ui->ChatsToolBtn->setIcon(QIcon(":/PNG/chats.png"));
     ui->FriendsToolBtn->setIcon(QIcon(":/PNG/friend.png"));
+    ui->addToolBtn->setIcon(QIcon(":/PNG/addBtn.png"));
     m_buttons.append(ui->SettingToolBtn);
     m_buttons.append( ui->ChatsToolBtn);
     m_buttons.append(ui->FriendsToolBtn);
     connects();
-
 }
 
 MainWindow::~MainWindow()
@@ -28,6 +29,20 @@ void MainWindow::connects()
     {
         connect(btn, &QToolButton::clicked, this, &MainWindow::updateLeftToolBtnsCheckedButton);
     }
+
+    connect(m_buttons[1], &QToolButton::clicked, this, [&]{
+        this->chatsListWidget = new QListWidget(this);
+        for(int i = 0; i < 10; i++)
+        {
+            QListWidgetItem *item = new QListWidgetItem();
+            CusttomListtItem *customItem = new CusttomListtItem(":/PNG/UserPicture.jpg");
+            this->chatsListWidget->addItem(item);
+            this->chatsListWidget->setItemWidget(item, customItem);
+        }
+        ui->Midwidget->layout()->removeItem( ui->Midwidget->layout()->itemAt(1));
+        ui->Midwidget->layout()->addWidget(this->chatsListWidget);
+    });
+
 }
 
 void MainWindow::updateLeftToolBtnsCheckedButton()
@@ -49,5 +64,23 @@ void MainWindow::updateLeftToolBtnsCheckedButton()
     for (QToolButton *button : m_buttons) {
         if (button != senderButton)
             button->setChecked(false);
+    }
+
+    if(m_buttons[1]->isChecked())
+    {
+        m_buttons[1]->setIcon(QIcon(":/PNG/chat_checked.png"));
+    }
+    else
+    {
+        m_buttons[1]->setIcon(QIcon(":/PNG/chats.png"));
+    }
+
+    if(m_buttons[2]->isChecked())
+    {
+        m_buttons[2]->setIcon(QIcon(":/PNG/friend_checked.png"));
+    }
+    else
+    {
+        m_buttons[2]->setIcon(QIcon(":/PNG/friend.png"));
     }
 }

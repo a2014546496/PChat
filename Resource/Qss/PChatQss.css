@@ -12,12 +12,13 @@ QWidget#Midwidget{
 
 QToolButton{
     background-color:#f3f4f7;
+    background:transparent;
+    background-repeat:no-repeat;
+    background-position:center;
     border:none;
     border-radius:10px;
     padding:0px;
-    background:transparent;
-    text-align:center;
-
+    text-align:center;    
 }
 
 QToolButton:hover{
@@ -26,4 +27,44 @@ QToolButton:hover{
 
 QToolButton:checked{
     background-color:#d7d7d8;
+}
+
+QToolButton#addToolBtn{
+    background-color:#f3f4f7;
+}
+
+QToolButton#addToolBtn:pressed{
+    background-color:#d7d7d8;
+}
+
+QListView{
+    font:25 9pt "Microsoft Yahei";
+    border-radius: 5px;
+    border:0px solid white;
+}
+
+QListView::item {
+    height: 60px;
+}
+
+QListView::item:hover {
+    background-color:#d7d7d8;
+    padding: 10px;
+}
+
+/*QListView::item:selected {
+    background-color: transparent;
+    color: black;
+    padding: 10px;
+    border-left: 3px solid black;
+}*/
+
+QLineEdit{
+    font: 9pt "Microsoft Yahei";
+    border-radius:5px;
+    background-color:#f3f4f7;
+}
+
+QLineEdit:focus{
+    border:2px solid #b3dcff;
 }

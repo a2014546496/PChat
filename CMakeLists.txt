@@ -39,6 +39,12 @@ else()
         add_executable(PChat
             ${PROJECT_SOURCES}
             Resource/Resource.qrc
+            circlelabel.h circlelabel.cpp
+            custtomlisttitem.h custtomlisttitem.cpp custtomlisttitem.ui
+
+
+
+
 
         )
     endif()

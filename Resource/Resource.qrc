@@ -5,6 +5,8 @@
         <file>PNG/UserPicture.jpg</file>
         <file>PNG/chats.png</file>
         <file>PNG/friend.png</file>
-        <file>PNG/chat-selected.png</file>
+        <file>PNG/chat_checked.png</file>
+        <file>PNG/friend_checked.png</file>
+        <file>PNG/addBtn.png</file>
     </qresource>
 </RCC>
