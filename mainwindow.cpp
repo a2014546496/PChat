@@ -3,6 +3,8 @@
 #include<QPixmap>
 #include<QPainter>
 #include"custtomlisttitem.h"
+#include "QMessageBox"
+#include  "chatformwidget.h"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent), ui(new Ui::MainWindow)
@@ -12,9 +14,13 @@ MainWindow::MainWindow(QWidget *parent)
     ui->ChatsToolBtn->setIcon(QIcon(":/PNG/chats.png"));
     ui->FriendsToolBtn->setIcon(QIcon(":/PNG/friend.png"));
     ui->addToolBtn->setIcon(QIcon(":/PNG/addBtn.png"));
+    this->newidget = nullptr;
     m_buttons.append(ui->SettingToolBtn);
     m_buttons.append( ui->ChatsToolBtn);
     m_buttons.append(ui->FriendsToolBtn);
+
+    QVBoxLayout *layout = new QVBoxLayout(this->ui->Rightwidget); // 确保窗口已经创建并设置了布局
+    this->ui->Rightwidget->setLayout(layout);
     connects();
 }
 
@@ -41,6 +47,14 @@ void MainWindow::connects()
         }
         ui->Midwidget->layout()->removeItem( ui->Midwidget->layout()->itemAt(1));
         ui->Midwidget->layout()->addWidget(this->chatsListWidget);
+        connect(this->chatsListWidget, &QListWidget::itemClicked,[&](QListWidgetItem * item){
+
+            if(this->ui->Rightwidget->layout()->count() > 0 && this->newidget != nullptr)
+                this->ui->Rightwidget->layout()->removeWidget(this->newidget);
+
+            this->newidget =  new ChatFormWidget();
+            this->ui->Rightwidget->layout()->addWidget(newidget);
+        });
     });
 
 }

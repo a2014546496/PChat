@@ -41,6 +41,7 @@ else()
             Resource/Resource.qrc
             circlelabel.h circlelabel.cpp
             custtomlisttitem.h custtomlisttitem.cpp custtomlisttitem.ui
+            chatformwidget.h chatformwidget.cpp chatformwidget.ui
 
 
 

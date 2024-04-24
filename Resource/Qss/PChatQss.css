@@ -52,6 +52,10 @@ QListView::item:hover {
     padding: 10px;
 }
 
+QListView#ChatlistView {
+    background-color:#f3f4f7;
+    border:none;
+}
 /*QListView::item:selected {
     background-color: transparent;
     color: black;
@@ -67,4 +71,9 @@ QLineEdit{
 
 QLineEdit:focus{
     border:2px solid #b3dcff;
+}
+
+QTextEdit#ChatTextEdit{
+    border:none;
+    background-color:#f3f4f7;
 }
